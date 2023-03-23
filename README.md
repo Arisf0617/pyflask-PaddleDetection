@@ -1,0 +1,2 @@
+# pyflask-PaddleDetection
+根据PaddleDetection源码自定义部署的python程序，Flask接口版和本地版
