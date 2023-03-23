@@ -3,6 +3,7 @@
 
 1.clone PaddleDetection源码至本地项目
 PaddleDetection项目地址：https://github.com/PaddlePaddle/PaddleDetection
+
 git clone https://github.com/PaddlePaddle/PaddleDetection.git
 
 2.import推理类
