@@ -2,6 +2,7 @@
 根据PaddleDetection源码自定义部署的python程序，Flask接口版和本地版
 
 1.clone PaddleDetection源码至本地项目
+
 PaddleDetection项目地址：https://github.com/PaddlePaddle/PaddleDetection
 
 git clone https://github.com/PaddlePaddle/PaddleDetection.git
