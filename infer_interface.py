@@ -1,30 +1,17 @@
 # 推理Flask接口化
-
 import os
-
-import requests
-import yaml
-import glob
-import json
-from pathlib import Path
-import time
-
 import requests
 from PIL import Image
 from io import BytesIO
 
 import cv2
 import numpy as np
-import math
-import paddle
-from paddle.inference import Config
-from paddle.inference import create_predictor
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PaddleDetection.deploy.python.infer import Detector, visualize_box_mask
 
-model_dir = r"inference_model2/yolov3_darknet53_500e_voc"  # 模型路径
-save_path = r"E:/Projects/JavaWeb/bs/src/main/webapp/output/"  # 推理结果保存路径
+model_dir = r""  # 模型路径
+save_path = r""  # 推理结果保存路径
 
 # 推理参数设置
 detector = Detector(
@@ -40,7 +27,6 @@ detector = Detector(
     enable_mkldnn_bfloat16=False,
     output_dir=save_path,
     threshold=0.1)
-
 
 def infer_start(img_path, img_name):
     # 读取网络图片
@@ -63,10 +49,8 @@ def infer_start(img_path, img_name):
     cv2.imwrite(os.path.join(save_path) + img_name.replace(':', '_'), im)  # cv2保存图片
     return label_rs
 
-
 app = Flask(__name__)
 CORS(app, resources=r'/*')
-
 
 @app.route('/infer', methods=['POST'])
 def main():
@@ -81,4 +65,4 @@ def main():
     return jsonify({'code': 200, 'save_path': save_rs, 'message': result})
 
 
-app.run(port=8000)
+app.run(port=8000) # 接口的运行端口
